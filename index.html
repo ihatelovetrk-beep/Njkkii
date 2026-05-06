@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Landing + Popup</title>
+
+<style>
+  body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#0b1220;
+    color:#e5e7eb;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    height:100vh;
+  }
+  .btn-open{
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:#22c55e;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+  }
+  .overlay{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.7);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .popup{
+    width:320px;
+    background:#0f172a;
+    border-radius:15px;
+    padding:15px;
+    box-shadow:0 0 20px rgba(0,255,200,0.4);
+    text-align:center;
+  }
+  .timer{
+    font-size:28px;
+    color:#22c55e;
+    margin:10px 0;
+  }
+  .btn{
+    width:48%;
+    padding:10px;
+    margin:5px;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+  }
+  .small{ background:orange; }
+  .big{ background:green; }
+  .open-game{
+    margin-top:10px;
+    padding:10px;
+    width:100%;
+    background:#3b82f6;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+  }
+</style>
+</head>
+
+<body>
+
+<button class="btn-open" onclick="showPopup()">Start Panel</button>
+
+<div class="overlay" id="overlay" style="display:none;">
+  <div class="popup">
+    <h3>Demo Panel</h3>
+    <div class="timer" id="timer">00:60</div>
+
+    <button class="btn small">SMALL</button>
+    <button class="btn big">BIG</button>
+
+    <button class="open-game" onclick="openGame()">Open Game</button>
+  </div>
+</div>
+
+<script>
+let time = 60;
+
+setInterval(()=>{
+  time--;
+  if(time<=0) time=60;
+  document.getElementById("timer").innerText =
+    "00:" + (time<10?"0"+time:time);
+},1000);
+
+function showPopup(){
+  document.getElementById("overlay").style.display="flex";
+}
+
+function openGame(){
+  window.location.href="https://15yaarwin.com/#/register?invitationCode=13152222643";
+}
+</script>
+
+</body>
+</html>
